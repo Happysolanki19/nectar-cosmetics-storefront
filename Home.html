@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nectar Cosmetics | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root{
+            --home-blue:#2874f0;
+            --home-blue-dark:#1557c0;
+            --home-yellow:#ffe500;
+            --home-ink:#212121;
+            --home-muted:#666b73;
+            --home-bg:#f1f2f6;
+        }
+        body{background:var(--home-bg);color:var(--home-ink)}
+        header{min-height:76px;padding:12px max(24px,calc((100% - 1240px)/2));background:var(--home-blue);box-shadow:0 4px 14px rgba(21,87,192,.18)}
+        header.scrolled{padding-top:9px;padding-bottom:9px;background:var(--home-blue)}
+        .logo{color:#fff}
+        nav a{color:#fff}
+        nav a:hover,nav a.active{color:var(--home-yellow)}
+        nav a::after{background:var(--home-yellow)}
+        .menu-toggle span{background:#fff}
+        .home-announcement{padding:8px 16px;background:var(--home-ink);color:#fff;text-align:center;font-size:12px;letter-spacing:.04em}
+        .home-announcement strong{color:var(--home-yellow)}
+        .home-main{max-width:1288px;margin:0 auto;padding:32px 24px 58px}
+        .home-hero{min-height:400px;position:relative;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:44px 62px;border:1px solid #e1e3e8;border-radius:14px;background:linear-gradient(110deg,#e5efff 0%,#f0f4ff 58%,#fff6d5 100%)}
+        .home-copy{position:relative;z-index:1;max-width:570px}
+        .home-eyebrow{display:flex;align-items:center;gap:9px;margin:0 0 15px;color:var(--home-blue);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+        .home-eyebrow::before{content:"";width:20px;height:2px;background:currentColor}
+        .home-copy h1{margin:0 0 15px;color:var(--home-ink);font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,5vw,58px);font-weight:500;line-height:1.08}
+        .home-copy>p{max-width:450px;margin:0 0 24px;color:#53647c;font-size:16px;line-height:1.7}
+        .home-actions{display:flex;flex-wrap:wrap;gap:11px}
+        .home-actions a{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 19px;border:1px solid var(--home-blue);border-radius:7px;background:var(--home-blue);color:#fff;text-decoration:none;font-size:14px;font-weight:700;transition:.2s ease}
+        .home-actions a:hover{background:var(--home-blue-dark);border-color:var(--home-blue-dark);transform:translateY(-1px)}
+        .home-actions a.home-advisor{border-color:var(--home-yellow);background:var(--home-yellow);color:var(--home-ink)}
+        .home-actions a.home-advisor:hover{background:#ffca28;border-color:#ffca28}
+        .home-art{position:relative;min-height:300px;display:grid;place-items:center}
+        .home-orbit{position:absolute;width:310px;height:310px;border-radius:50%;background:rgba(255,255,255,.72)}
+        .home-art img{position:relative;z-index:1;width:240px;height:280px;object-fit:cover;border:9px solid rgba(255,255,255,.8);border-radius:120px 120px 30px 30px;box-shadow:0 18px 40px rgba(33,33,33,.14);transform:rotate(4deg)}
+        .home-note{position:absolute;z-index:2;right:0;bottom:24px;padding:11px 15px;border-radius:9px;background:#fff;box-shadow:0 8px 24px rgba(33,33,33,.1);color:var(--home-ink);font-size:12px;font-weight:700}
+        .home-note span{color:#e5a800}
+        .home-benefits{display:grid;grid-template-columns:repeat(3,1fr);margin-top:20px;border:1px solid #e1e3e8;border-radius:10px;background:#fff}
+        .home-benefit{display:flex;align-items:center;justify-content:center;gap:10px;padding:17px 10px;color:#454b54;font-size:12px;font-weight:600}
+        .home-benefit+.home-benefit{border-left:1px solid #e1e3e8}
+        .home-benefit span{color:var(--home-blue);font-size:18px}
+        @media(max-width:768px){
+            header{min-height:66px;padding:10px 18px}
+            header.scrolled{padding:9px 18px}
+            nav{display:none;right:0;transform:none;transition:none;background:#fff}
+            nav.open{display:flex;right:0;transform:none}
+            nav a{color:var(--home-ink)}
+            nav a:hover,nav a.active{color:var(--home-blue)}
+            .home-main{padding:22px 16px 42px}
+            .home-hero{min-height:340px;padding:32px;grid-template-columns:1.2fr .8fr}
+            .home-art img{width:180px;height:220px}
+            .home-orbit{width:225px;height:225px}
+        }
+        @media(max-width:560px){
+            .home-announcement{font-size:10px}
+            .home-hero{min-height:360px;grid-template-columns:1fr;padding:28px 22px}
+            .home-copy h1{font-size:38px}
+            .home-copy>p{max-width:310px;font-size:14px}
+            .home-art{position:absolute;right:-42px;bottom:-68px;min-height:0;opacity:.2}
+            .home-art img{width:155px;height:190px}
+            .home-orbit{width:195px;height:195px}
+            .home-note{display:none}
+            .home-benefit{flex-direction:column;gap:5px;padding:12px 5px;text-align:center;font-size:9px}
+            .home-benefit span{font-size:16px}
+        }
+        @media(prefers-reduced-motion:reduce){
+            *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+        }
+    </style>
+</head>
+<body>
+    <div class="home-announcement">A little something for your routine — <strong>free shipping on orders over ₹999</strong></div>
+    <header>
+        <a class="logo" href="Home.html" aria-label="Nectar Cosmetics home">✨ Nectar Cosmetics</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="navMenu">
+            <a href="Home.html" class="active">Home</a>
+            <a href="shopepage.html">Shop</a>
+            <a href="shopepage.html#products">Products</a>
+            <a href="cart.html">Cart <span id="cartCount">0</span></a>
+            <a href="login.html">Login</a>
+            <a href="Registration%20.html">Register</a>
+        </nav>
+    </header>
+
+    <main class="home-main">
+        <section class="home-hero" aria-labelledby="homeHeading">
+            <div class="home-copy">
+                <p class="home-eyebrow">Your everyday, elevated</p>
+                <h1 id="homeHeading">Good skin days start with a little self-care.</h1>
+                <p>Thoughtful beauty essentials for the rituals that feel like you. Find a new favourite for your everyday routine.</p>
+                <div class="home-actions">
+                    <a href="shopepage.html">Explore the collection <span aria-hidden="true">→</span></a>
+                    <a class="home-advisor" href="shopepage.html#finderHeading">Ask the Beauty Advisor <span aria-hidden="true">✦</span></a>
+                </div>
+            </div>
+            <div class="home-art" aria-hidden="true">
+                <span class="home-orbit"></span>
+                <img src="lipstick.webp" alt="">
+                <span class="home-note"><span>✦</span> Your new daily ritual</span>
+            </div>
+        </section>
+        <div class="home-benefits" aria-label="Shopping highlights">
+            <div class="home-benefit"><span aria-hidden="true">✦</span> Curated beauty essentials</div>
+            <div class="home-benefit"><span aria-hidden="true">♡</span> Made for your routine</div>
+            <div class="home-benefit"><span aria-hidden="true">↗</span> Easy, feel-good shopping</div>
+        </div>
+    </main>
+
+    <script>
+        // ===== Enhanced Navigation & Effects =====
+        try {
+            const cart = JSON.parse(localStorage.getItem('nectarCart') || '[]');
+            document.getElementById('cartCount').textContent = Array.isArray(cart)
+                ? cart.reduce((total, item) => total + item.quantity, 0)
+                : 0;
+        } catch {
+            document.getElementById('cartCount').textContent = '0';
+        }
+
+    </script>
+    <script src="app.js" defer></script>
+</body>
+</html>

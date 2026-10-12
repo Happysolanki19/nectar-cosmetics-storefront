@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nectar Cosmetics| Premium Beauty & Cosmetics Shop</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo"> Nectar Cosmetics</div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <button id="cartBtn" class="cart-btn">🛒 Cart <span id="cartCount">0</span></button>
+            <button id="loginBtn" class="login-btn">Login</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h4>DISCOVER LUXURY BEAUTY</h4>
+            <h1>Premium Cosmetic & Beauty Products</h1>
+            <p>Curated collection of authentic beauty products</p>
+            <a href="#shop" class="btn btn-primary">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <div class="trust-strip">
+        <div class="trust-item">
+            <span class="icon">🚚</span>
+            <span>Free Shipping Over ₹599</span>
+        </div>
+        <div class="trust-item">
+            <span class="icon">✅</span>
+            <span>100% Authentic</span>
+        </div>
+        <div class="trust-item">
+            <span class="icon">🔄</span>
+            <span>30-Day Returns</span>
+        </div>
+        <div class="trust-item">
+            <span class="icon">🎁</span>
+            <span>Gift Wrapping Free</span>
+        </div>
+    </div>
+
+    <!-- Shop Section -->
+    <section id="shop" class="shop">
+        <div class="shop-header">
+            <h2>Featured Products</h2>
+            <div class="filter-search">
+                <input type="text" id="searchBox" placeholder="Search products..." class="search-input">
+                <select id="categoryFilter" class="category-filter">
+                    <option value="">All Categories</option>
+                    <option value="Skincare">Skincare</option>
+                    <option value="Makeup">Makeup</option>
+                    <option value="Haircare">Haircare</option>
+                    <option value="Fragrance">Fragrance</option>
+                </select>
+                <select id="sortFilter" class="sort-filter">
+                    <option value="">Sort By</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name">Name: A to Z</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products" id="productsContainer">
+            <!-- Products will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>Why Choose GlowNest?</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="about-icon">🌟</div>
+                <h3>Premium Quality</h3>
+                <p>Handpicked products from trusted brands worldwide</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">💎</div>
+                <h3>Best Prices</h3>
+                <p>Competitive pricing with regular exclusive deals</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">🚀</div>
+                <h3>Fast Shipping</h3>
+                <p>Express delivery to your doorstep</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">💬</div>
+                <h3>Expert Support</h3>
+                <p>24/7 customer service ready to help</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-wrapper">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>📧 Email:</strong> support@glownest.com</p>
+                    <p><strong>📱 Phone:</strong> +1 (800) BEAUTY-1</p>
+                    <p><strong>📍 Address:</strong> 123 Glamour Street, Beauty City</p>
+                    <p><strong>⏰ Hours:</strong> 24/7 Available</p>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content cart-modal">
+            <span class="close-modal">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be displayed here -->
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="shipping">$0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Checkout</button>
+                <button class="btn btn-secondary" id="continueShop" style="width: 100%; margin-top: 10px;">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content login-modal">
+            <span class="close-modal">&times;</span>
+            <div class="logo-modal">Nectar Cosmetics</div>
+            <h2>Welcome Back</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p class="modal-footer">Don't have an account? <a href="#" onclick="openRegisterModal(); return false;">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content login-modal">
+            <span class="close-modal">&times;</span>
+            <div class="logo-modal"> Nectar Cosmetics</div>
+            <h2>Create Account</h2>
+            <form id="registerForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+            <p class="modal-footer">Already have an account? <a href="#" onclick="openLoginModal(); return false;">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Pinterest</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GlowNest | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

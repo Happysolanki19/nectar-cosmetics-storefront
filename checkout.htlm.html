@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Nectar Cosmetics</title>
+
+<style>
+:root{--blue:#2874f0;--blue-dark:#1557c0;--yellow:#ffe500;--ink:#212121;--muted:#666b73;--line:#e1e3e8;--canvas:#f1f2f6}
+*{box-sizing:border-box}
+body{margin:0;padding:0;background:var(--canvas);color:var(--ink);font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+.header{background:var(--blue);color:#fff;text-align:center;padding:21px 170px;position:relative;box-shadow:0 4px 14px rgba(21,87,192,.18)}
+.header h1{margin:0;font-size:25px;letter-spacing:.2px}
+.back-home{position:absolute;left:max(20px,calc((100% - 1120px)/2));top:50%;transform:translateY(-50%);color:#fff;text-decoration:none;font-weight:600;background:rgba(255,255,255,.12);padding:9px 15px;border-radius:6px;border:1px solid rgba(255,255,255,.28);transition:.2s ease}
+.back-home:hover{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.container,.shipping-box{width:min(calc(100% - 40px),960px);margin:22px auto;background:#fff;padding:26px 30px;border-radius:9px;box-shadow:0 4px 18px rgba(33,33,33,.045);border:1px solid var(--line)}
+h2{color:var(--ink);margin:0 0 18px;font-size:20px;font-weight:700}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin-bottom:16px;border-radius:7px;overflow:hidden}
+table th{background:var(--blue);color:#fff;padding:12px;font-weight:700;font-size:13px}
+table th,table td{padding:12px;border:1px solid var(--line);text-align:center}
+table td{color:#454b54;font-size:13px}
+.total{text-align:right;font-size:19px;font-weight:800;color:var(--ink);padding:14px 16px;background:#f8f9fb;border-radius:7px;border-left:4px solid var(--blue)}
+.shipping-box{margin:0 auto 40px}
+.shipping-box form{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.shipping-box input{width:100%;padding:12px 14px;margin-bottom:13px;border:1px solid #d7dce4;border-radius:6px;box-sizing:border-box;font-size:14px;font-family:inherit;transition:.2s ease;color:var(--ink)}
+.shipping-box input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(40,116,240,.14)}
+.payment-heading,.payment-options,.payment-note,.place-order,.order-status{grid-column:1/-1}
+.payment-heading{margin:8px 0 10px;color:var(--ink);font-size:16px}
+.payment-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:12px}
+.payment-option{position:relative;display:flex;align-items:center;gap:9px;min-height:58px;padding:11px;border:1px solid var(--line);border-radius:7px;background:#fff;color:#353a42;cursor:pointer;font-size:12px;font-weight:600;transition:.2s ease}
+.payment-option:hover{border-color:#9dbcf5;background:#f7faff}
+.payment-option:has(input:checked){border-color:var(--blue);background:#eef4ff;box-shadow:0 0 0 1px var(--blue)}
+.payment-option input{width:16px;height:16px;flex:none;margin:0;accent-color:var(--blue)}
+.payment-icon{font-size:17px}
+.payment-note{margin:0 0 16px;padding:11px 13px;border-radius:6px;background:#f8f9fb;color:var(--muted);font-size:12px;line-height:1.55}
+.place-order{background:var(--yellow);color:var(--ink);border:none;padding:13px 24px;font-size:15px;border-radius:6px;cursor:pointer;font-weight:700;transition:.2s ease}
+.place-order:hover:not(:disabled){background:#ffca28}
+.place-order:disabled{cursor:not-allowed;opacity:.55}
+.order-status{margin:14px 0 0;padding:13px;border:1px solid #b8e1c9;border-radius:6px;background:#f0faf3;color:#176b39;font-size:13px;line-height:1.5}
+.order-status[hidden]{display:none}
+.back-home:focus-visible,.payment-option:focus-within,button:focus-visible,input:focus-visible{outline:3px solid #9fc1ff;outline-offset:2px}
+@media(max-width:768px){
+    .header{padding:20px 150px}
+    .header h1{font-size:20px}
+    .container,.shipping-box{width:calc(100% - 28px);padding:21px 18px}
+}
+@media(max-width:560px){
+    .header{padding:70px 16px 17px}
+    .header h1{font-size:19px}
+    .back-home{top:12px;left:14px;transform:none}
+    .container,.shipping-box{width:calc(100% - 24px);margin:14px auto;padding:18px 14px}
+    .shipping-box{margin-bottom:24px}
+    table th,table td{padding:9px 7px;font-size:11px}
+    .total{font-size:17px}
+    .shipping-box form{grid-template-columns:1fr;gap:0}
+    .payment-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <a href="Home.html" class="back-home">← Home</a>
+    <h1>✨ Nectar Cosmetics Checkout</h1>
+</div>
+
+<div class="container">
+
+    <h2>Order Summary</h2>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="orderItems"></tbody>
+        </table>
+    </div>
+
+    <div class="total">
+        Total: <span id="orderTotal">₹0</span>
+    </div>
+
+</div>
+
+<div class="shipping-box">
+
+    <h2>Shipping Details</h2>
+
+    <form id="checkoutForm">
+        <input type="text" name="fullName" autocomplete="name" placeholder="Full Name" aria-label="Full Name" required>
+        <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="Phone Number" aria-label="Phone Number" required>
+        <input type="text" name="address" autocomplete="street-address" placeholder="Address" aria-label="Address" required>
+        <input type="text" name="city" autocomplete="address-level2" placeholder="City" aria-label="City" required>
+        <input type="text" name="pincode" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="PIN code (6 digits)" aria-label="PIN code (6 digits)" required>
+        <h3 class="payment-heading">Choose a payment method</h3>
+        <div class="payment-options" role="radiogroup" aria-label="Payment method">
+            <label class="payment-option"><input type="radio" name="paymentMethod" value="upi" checked><span class="payment-icon" aria-hidden="true">↗</span> UPI</label>
+            <label class="payment-option"><input type="radio" name="paymentMethod" value="card"><span class="payment-icon" aria-hidden="true">▣</span> Credit / debit card</label>
+            <label class="payment-option"><input type="radio" name="paymentMethod" value="netbanking"><span class="payment-icon" aria-hidden="true">▤</span> Net banking</label>
+            <label class="payment-option"><input type="radio" name="paymentMethod" value="wallet"><span class="payment-icon" aria-hidden="true">▰</span> Mobile wallets</label>
+            <label class="payment-option"><input type="radio" name="paymentMethod" value="emi"><span class="payment-icon" aria-hidden="true">↻</span> EMI</label>
+            <label class="payment-option"><input type="radio" name="paymentMethod" value="paylater"><span class="payment-icon" aria-hidden="true">◷</span> Pay later</label>
+            <label class="payment-option"><input type="radio" name="paymentMethod" value="cod"><span class="payment-icon" aria-hidden="true">₹</span> Cash on delivery</label>
+        </div>
+        <p class="payment-note" id="paymentNote">UPI, cards, net banking, wallets, EMI and pay later are demo options only. No payment is collected or processed.</p>
+        <button class="place-order" id="placeOrder" type="submit">Place order · <span id="buttonTotal">₹0</span></button>
+        <p class="order-status" id="orderStatus" role="status" aria-live="polite" hidden></p>
+    </form>
+
+</div>
+
+<script>
+    const orderItems = document.getElementById('orderItems');
+    const orderTotal = document.getElementById('orderTotal');
+    const placeOrder = document.getElementById('placeOrder');
+    const orderStatus = document.getElementById('orderStatus');
+    const checkoutForm = document.getElementById('checkoutForm');
+    const paymentNote = document.getElementById('paymentNote');
+    const buyNowKey = 'nectarBuyNow';
+    const checkoutSourceKey = 'nectarCheckoutSource';
+    const checkoutSource = sessionStorage.getItem(checkoutSourceKey);
+    let checkoutCart = [];
+
+    function formatPrice(amount) {
+        return `₹${new Intl.NumberFormat('en-IN').format(amount)}`;
+    }
+
+    function readSavedItems(key) {
+        try {
+            const savedItems = JSON.parse(key === 'session'
+                ? sessionStorage.getItem(buyNowKey) || '[]'
+                : localStorage.getItem('nectarCart') || '[]');
+            return Array.isArray(savedItems) ? savedItems : [];
+        } catch {
+            return [];
+        }
+    }
+
+    function renderOrder() {
+        checkoutCart = checkoutSource === 'buy-now' ? readSavedItems('session') : readSavedItems('cart');
+        orderItems.replaceChildren();
+        let total = 0;
+
+        if (checkoutCart.length === 0) {
+            const emptyRow = document.createElement('tr');
+            const emptyCell = document.createElement('td');
+            emptyCell.colSpan = 4;
+            emptyCell.textContent = 'Your cart is empty. Add products before checkout.';
+            emptyRow.append(emptyCell);
+            orderItems.append(emptyRow);
+        }
+
+        checkoutCart.forEach(item => {
+            const subtotal = item.price * item.quantity;
+            total += subtotal;
+            const row = document.createElement('tr');
+            [item.name, formatPrice(item.price), item.quantity, formatPrice(subtotal)].forEach(value => {
+                const cell = document.createElement('td');
+                cell.textContent = value;
+                row.append(cell);
+            });
+            orderItems.append(row);
+        });
+
+        orderTotal.textContent = formatPrice(total);
+        document.getElementById('buttonTotal').textContent = formatPrice(total);
+        placeOrder.disabled = checkoutCart.length === 0;
+    }
+
+    const paymentInstructions = {
+        upi: 'UPI is available as a demo option. No UPI ID is requested and no payment is processed.',
+        card: 'Credit and debit cards are listed as demo options. Do not enter or share card details here; no payment is processed.',
+        netbanking: 'Net banking is listed as a demo option. No bank credentials are requested or processed.',
+        wallet: 'Mobile wallets are listed as a demo option. No wallet account details are requested or processed.',
+        emi: 'EMI is listed as a demo option only; no financing or payment is arranged.',
+        paylater: 'Pay later is listed as a demo option only; no credit or payment is arranged.',
+        cod: 'Cash on delivery selected. This demo will not submit a real order.'
+    };
+
+    checkoutForm.querySelectorAll('input[name="paymentMethod"]').forEach(method => {
+        method.addEventListener('change', () => {
+            paymentNote.textContent = paymentInstructions[method.value];
+        });
+    });
+
+    checkoutForm.addEventListener('submit', event => {
+        event.preventDefault();
+        if (!checkoutForm.reportValidity() || checkoutCart.length === 0) return;
+
+        const orderNumber = `NC-${Date.now().toString().slice(-8)}`;
+        const selectedMethod = checkoutForm.querySelector('input[name="paymentMethod"]:checked').value;
+        if (checkoutSource === 'buy-now') {
+            sessionStorage.removeItem(buyNowKey);
+        } else {
+            localStorage.removeItem('nectarCart');
+        }
+        sessionStorage.removeItem(checkoutSourceKey);
+        orderStatus.textContent = `Demo order ${orderNumber} is ready. ${selectedMethod === 'cod' ? 'Cash on delivery was selected.' : 'No payment was collected or processed.'}`;
+        orderStatus.hidden = false;
+        checkoutForm.querySelectorAll('input,button').forEach(control => {
+            control.disabled = true;
+        });
+        placeOrder.disabled = true;
+        orderStatus.hidden = false;
+    });
+
+    renderOrder();
+</script>
+
+<script src="app.js" defer></script>
+</body>
+</html>

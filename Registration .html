@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nectar Cosmetics Registration</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:76px 20px 30px;
+    background:#f1f2f6;
+    color:#212121;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position:relative;
+    overflow-x:clip;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    bottom:-170px;
+    right:-100px;
+    width:420px;
+    height:420px;
+    background:radial-gradient(circle, rgba(40,116,240,0.12) 0%, transparent 70%);
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.form-box{
+    width:min(100%,420px);
+    background:#fff;
+    padding:36px;
+    border:1px solid #e1e3e8;
+    border-radius:12px;
+    box-shadow:0 12px 38px rgba(33,33,33,.09);
+    position:relative;
+    z-index:2;
+}
+
+.logo{
+    text-align:center;
+    color:#2874f0;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:29px;
+    font-weight:800;
+    margin-bottom:7px;
+    letter-spacing:-.5px;
+}
+
+h2{
+    text-align:center;
+    color:#212121;
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.form-intro{
+    margin:0 0 22px;
+    color:#666b73;
+    text-align:center;
+    font-size:13px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px 15px;
+    margin-bottom:13px;
+    border:1px solid #d7dce4;
+    border-radius:6px;
+    box-sizing:border-box;
+    font-size:14px;
+    font-family:inherit;
+    transition:border-color .2s ease,box-shadow .2s ease;
+    background:#fff;
+    color:#212121;
+}
+
+input:focus,
+textarea:focus{
+    outline:none;
+    border-color:#2874f0;
+    box-shadow:0 0 0 3px rgba(40,116,240,.14);
+}
+
+textarea{
+    resize:none;
+    height:82px;
+}
+
+.btn{
+    width:100%;
+    padding:13px;
+    background:#ffe500;
+    color:#212121;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background .2s ease;
+}
+
+.btn:hover{
+    background:#ffca28;
+}
+
+.link{
+    text-align:center;
+    margin-top:16px;
+}
+
+.link a{
+    color:#2874f0;
+    text-decoration:none;
+    font-weight:600;
+    transition:color .2s ease;
+    font-size:13px;
+}
+
+.link a:hover{
+    color:#1557c0;
+    text-decoration:underline;
+}
+
+.back-home{
+    position:absolute;
+    top:22px;
+    left:22px;
+    z-index:3;
+    color:#2874f0;
+    text-decoration:none;
+    font-weight:600;
+    background:#fff;
+    padding:9px 18px;
+    border-radius:6px;
+    border:1px solid #dce2eb;
+    transition:background .2s ease,border-color .2s ease;
+}
+
+.back-home:hover{
+    background:#edf4ff;
+    border-color:#2874f0;
+}
+
+@media(max-width:480px){
+    body{padding:70px 16px 24px}
+    .back-home{top:14px;left:16px}
+    .form-box{padding:30px 23px}
+}
+</style>
+</head>
+
+<body>
+
+<a href="Home.html" class="back-home">← Home</a>
+
+<div class="form-box">
+
+    <div class="logo">Nectar Cosmetics</div>
+
+    <h2>Create an Account</h2>
+    <p class="form-intro">Join Nectar and find your feel-good routine.</p>
+
+    <form id="registerForm">
+
+        <input type="text"
+               name="name"
+               autocomplete="name"
+               placeholder="Enter Name"
+               required>
+
+        <input type="email"
+               name="email"
+               autocomplete="email"
+               placeholder="Enter Email"
+               required>
+
+        <input type="password"
+               name="password"
+               autocomplete="new-password"
+               minlength="10"
+               maxlength="72"
+               placeholder="Enter Password"
+               required>
+
+        <input type="tel"
+               name="phone"
+               autocomplete="tel"
+               placeholder="Phone Number (optional)">
+
+        <textarea
+               name="address"
+               autocomplete="street-address"
+               placeholder="Address (optional)"></textarea>
+
+        <button type="submit" class="btn">
+            Create Account ✨
+        </button>
+
+    </form>
+    <p class="form-intro" id="authStatus" role="status" aria-live="polite" hidden></p>
+
+    <div class="link">
+        <a href="login.html">
+            I have an account! Login
+        </a>
+    </div>
+
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

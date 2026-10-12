@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nectar Cosmetics Login</title>
+    <style>
+        *{box-sizing:border-box}
+        body{margin:0;min-height:100vh;min-height:100svh;display:flex;justify-content:center;align-items:center;padding:76px 20px 30px;background:#f1f2f6;color:#212121;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;position:relative;overflow-x:clip}
+        body::before,body::after{content:'';position:fixed;border-radius:50%;pointer-events:none}
+        body::before{top:-180px;right:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(40,116,240,.12),transparent 70%)}
+        body::after{bottom:-180px;left:-120px;width:380px;height:380px;background:radial-gradient(circle,rgba(255,229,0,.16),transparent 70%)}
+        .box{position:relative;z-index:1;width:min(100%,400px);padding:42px;background:#fff;border:1px solid #e1e3e8;border-radius:12px;text-align:center;box-shadow:0 12px 38px rgba(33,33,33,.09)}
+        .logo{margin-bottom:7px;color:#2874f0;font-family:Georgia,'Times New Roman',serif;font-size:29px;font-weight:800;letter-spacing:-.5px}
+        h1{margin:0 0 8px;color:#212121;font-size:22px}
+        .form-intro{margin:0 0 22px;color:#666b73;font-size:13px}
+        .input-field{width:100%;margin:8px 0;padding:13px 14px;border:1px solid #d7dce4;border-radius:6px;background:#fff;color:#212121;font:inherit;font-size:14px}
+        .input-field:focus{outline:none;border-color:#2874f0;box-shadow:0 0 0 3px rgba(40,116,240,.14)}
+        .btn{width:100%;margin-top:15px;padding:13px;border:0;border-radius:6px;background:#ffe500;color:#212121;font:inherit;font-size:16px;font-weight:700;cursor:pointer}
+        .btn:hover{background:#ffca28}
+        .btn:disabled{cursor:wait;opacity:.7}
+        .link{display:block;margin-top:20px;color:#2874f0;text-decoration:none;font-size:13px;font-weight:600}
+        .link:hover{color:#1557c0;text-decoration:underline}
+        .back-home{position:absolute;top:22px;left:22px;z-index:2;padding:9px 18px;border:1px solid #dce2eb;border-radius:6px;background:#fff;color:#2874f0;text-decoration:none;font-weight:600}
+        .back-home:hover{border-color:#2874f0;background:#edf4ff}
+        #authStatus[data-state="error"]{color:#a52e2e}
+        @media(max-width:480px){body{padding:70px 16px 24px}.back-home{top:14px;left:16px}.box{padding:32px 24px}}
+    </style>
+</head>
+<body>
+    <a href="Home.html" class="back-home">← Home</a>
+    <main class="box">
+        <div class="logo">Nectar Cosmetics</div>
+        <h1>User Login</h1>
+        <p class="form-intro">Welcome back. Sign in to your Nectar account.</p>
+        <form id="loginForm">
+            <input type="email" name="email" autocomplete="email" class="input-field" placeholder="Enter Email" aria-label="Enter Email" required>
+            <input type="password" name="password" autocomplete="current-password" minlength="10" maxlength="72" class="input-field" placeholder="Enter Password" aria-label="Enter Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p class="form-intro" id="authStatus" role="status" aria-live="polite" hidden></p>
+        <a href="Registration%20.html" class="link">Don't have an account? Create One</a>
+    </main>
+    <script src="app.js" defer></script>
+</body>
+</html>

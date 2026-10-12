@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nectar Cosmetics | Shop Beauty Essentials</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="storefront.css">
+</head>
+<body class="marketplace">
+
+    <!-- Navigation Header -->
+    <header>
+        <a class="logo" href="index.html">✨ Nectar Cosmetics</a>
+        <form class="market-search" id="marketSearchForm" role="search">
+            <input id="productSearch" type="search" placeholder="Search beauty products" aria-label="Search beauty products">
+            <button type="submit" aria-label="Search">Search</button>
+        </form>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="#wishlist" id="wishlistLink">Wishlist <span id="wishlistCount">0</span></a>
+            <a href="cart.html" class="market-cart">Cart <span id="cartCount">0</span></a>
+            <a href="login.html" class="nav-btn">Login</a>
+        </nav>
+    </header>
+
+    <main id="home">
+        <section class="market-promo" aria-label="Nectar Cosmetics shopping offers">
+            <div>
+                <p class="market-eyebrow">NECTAR BEAUTY DAYS</p>
+                <h1>Everyday beauty. Better choices.</h1>
+                <p>Explore skincare, makeup, haircare and more—all in one place.</p>
+                <a href="#shop" class="btn btn-primary">Shop products <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="promo-art" aria-hidden="true">✦</div>
+        </section>
+
+    <!-- Trust Strip -->
+    <div class="trust-strip reveal">
+        <div class="trust-item">
+            <span class="icon">🚚</span>
+            <span>Free Shipping</span>
+        </div>
+        <div class="trust-item">
+            <span class="icon">✅</span>
+            <span>Authentic Products</span>
+        </div>
+        <div class="trust-item">
+            <span class="icon">🔄</span>
+            <span>Easy Returns</span>
+        </div>
+        <div class="trust-item">
+            <span class="icon">📞</span>
+            <span>24/7 Support</span>
+        </div>
+    </div>
+
+    <section class="quick-links-section reveal">
+        <div class="quick-links">
+            <a href="#shop" class="quick-link">🛍️ Shop</a>
+            <a href="login.html" class="quick-link">🔐 Login</a>
+            <a href="Registration%20.html" class="quick-link">📝 Register</a>
+            <a href="cart.html" class="quick-link">🛒 View Cart</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories reveal">
+        <h2>Shop by Category</h2>
+        <div class="category-box">
+            <a href="#shop" class="category-card" data-category-link="Skincare">
+                <div class="card-icon">💆</div>
+                <span>Skincare</span>
+            </a>
+            <a href="#shop" class="category-card" data-category-link="Makeup">
+                <div class="card-icon">💄</div>
+                <span>Makeup</span>
+            </a>
+            <a href="#shop" class="category-card" data-category-link="Haircare">
+                <div class="card-icon">💇</div>
+                <span>Haircare</span>
+            </a>
+            <a href="#shop" class="category-card" data-category-link="Fragrance">
+                <div class="card-icon">🌸</div>
+                <span>Fragrance</span>
+            </a>
+            <a href="#shop" class="category-card" data-category-link="Lip Care">
+                <div class="card-icon">👄</div>
+                <span>Lip Care</span>
+            </a>
+            <a href="#shop" class="category-card" data-category-link="Eye Care">
+                <div class="card-icon">👁️</div>
+                <span>Eye Care</span>
+            </a>
+            <a href="#shop" class="category-card" data-category-link="Sunscreen">
+                <div class="card-icon">☀️</div>
+                <span>Sunscreen</span>
+            </a>
+            <a href="#shop" class="category-card" data-category-link="Body Care">
+                <div class="card-icon">🧴</div>
+                <span>Body Care</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="shop reveal">
+        <div class="shop-header">
+            <h2 class="shop-title">Featured Products</h2>
+            <p class="shop-sub">Discover our best-selling products with amazing deals</p>
+        </div>
+
+        <div class="shop-tools">
+            <div class="filter-row" role="group" aria-label="Product filters">
+                <label>Category
+                    <select id="categoryFilter">
+                        <option value="">All categories</option>
+                        <option>Skincare</option><option>Makeup</option><option>Haircare</option>
+                        <option>Fragrance</option><option>Lip Care</option><option>Eye Care</option>
+                        <option>Sunscreen</option><option>Body Care</option>
+                    </select>
+                </label>
+                <label>Price
+                    <select id="priceFilter">
+                        <option value="">Any price</option>
+                        <option value="0-500">Under ₹500</option>
+                        <option value="500-1000">₹500–₹1,000</option>
+                        <option value="1000-2000">₹1,000–₹2,000</option>
+                    </select>
+                </label>
+                <label>Sort by
+                    <select id="sortFilter">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to high</option>
+                        <option value="price-high">Price: High to low</option>
+                        <option value="rating">Top rated</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </label>
+                <label>Rating
+                    <select id="ratingFilter">
+                        <option value="0">Any rating</option>
+                        <option value="4">4★ & above</option>
+                        <option value="5">5★ only</option>
+                    </select>
+                </label>
+                <button id="clearFilters" class="clear-filters" type="button">Clear filters</button>
+            </div>
+            <p id="productResults" class="product-results" aria-live="polite"></p>
+        </div>
+
+        <div id="productsGrid" class="products">
+            <div class="product-card" data-product-id="premium-moisturizer" data-category="Skincare" data-price="1299" data-rating="5">
+                <div class="product-image">
+                    <div class="placeholder-img">Product 1</div>
+                </div>
+                <h3 class="product-name">Premium Moisturizer</h3>
+                <p class="category">Skincare</p>
+                <div class="rating">⭐⭐⭐⭐⭐ (5 Rate)</div>
+                <p class="price">₹1,299</p>
+                <div class="product-actions">
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="btn btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="liquid-foundation" data-category="Makeup" data-price="899" data-rating="4">
+                <div class="product-image">
+                    <div class="placeholder-img">Product 2</div>
+                </div>
+                <h3 class="product-name">Liquid Foundation</h3>
+                <p class="category">Makeup</p>
+                <div class="rating">⭐⭐⭐⭐ (4 Rate) </div>
+                <p class="price">₹899</p>
+                <div class="product-actions">
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="btn btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="volumizing-shampoo" data-category="Haircare" data-price="699" data-rating="3">
+                <div class="product-image">
+                    <div class="placeholder-img">Product 3</div>
+                </div>
+                <h3 class="product-name">Volumizing Shampoo</h3>
+                <p class="category">Haircare</p>
+                <div class="rating">⭐⭐⭐ (3 reviews)</div>
+                <p class="price">₹699</p>
+                <div class="product-actions">
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="btn btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="luxury-perfume" data-category="Fragrance" data-price="1799" data-rating="5">
+                <div class="product-image">
+                    <div class="placeholder-img">Product 4</div>
+                </div>
+                <h3 class="product-name">Luxury Perfume</h3>
+                <p class="category">Fragrance</p>
+                <div class="rating">⭐⭐⭐⭐⭐ (5 Rate)</div>
+                <p class="price">₹1,799</p>
+                <div class="product-actions">
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="btn btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="matte-lipstick" data-category="Lip Care" data-price="449" data-rating="5">
+                <div class="product-image">
+                    <img src="lipstick.webp" alt="Nectar matte lipstick" loading="lazy">
+                </div>
+                <h3 class="product-name">Matte Lipstick</h3>
+                <p class="category">Lip Care</p>
+                <div class="rating">⭐⭐⭐⭐⭐ (5 Rate)</div>
+                <p class="price">₹449</p>
+                <div class="product-actions">
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="btn btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="eye-cream" data-category="Eye Care" data-price="1099" data-rating="4">
+                <div class="product-image">
+                    <div class="placeholder-img">Product 6</div>
+                </div>
+                <h3 class="product-name">Eye Cream</h3>
+                <p class="category">Eye Care</p>
+                <div class="rating">⭐⭐⭐⭐ (4 Rate)</div>
+                <p class="price">₹1,099</p>
+                <div class="product-actions">
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="btn btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="spf-50-sunscreen" data-category="Sunscreen" data-price="649" data-rating="4">
+                <div class="product-image">
+                    <div class="placeholder-img">Product 7</div>
+                </div>
+                <h3 class="product-name">SPF 50 Sunscreen</h3>
+                <p class="category">Sunscreen</p>
+                <div class="rating">⭐⭐⭐⭐ (4 Rate)</div>
+                <p class="price">₹649</p>
+                <div class="product-actions">
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="btn btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="body-lotion" data-category="Body Care" data-price="599" data-rating="4">
+                <div class="product-image">
+                    <img src="body lotion.jpg" alt="Nectar body lotion" loading="lazy">
+                </div>
+                <h3 class="product-name">Body Lotion</h3>
+                <p class="category">Body Care</p>
+                <div class="rating">⭐⭐⭐⭐ (4 Rate)</div>
+                <p class="price">₹599</p>
+                <div class="product-actions">
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="btn btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <p id="noProducts" class="no-products" hidden>No products match those filters. Try changing your search.</p>
+        <section id="wishlist" class="wishlist-section">
+            <div class="wishlist-heading">
+                <h2>Your wishlist</h2>
+                <p>Products you saved for later.</p>
+            </div>
+            <div id="wishlistGrid" class="products"></div>
+            <p id="wishlistEmpty" class="wishlist-empty">Your wishlist is empty. Tap the heart on a product to save it.</p>
+        </section>
+    </section>
+    </main>
+
+    <!-- AI Beauty Advisor -->
+    <section id="advisor" class="advisor-section reveal">
+        <div class="advisor-card">
+            <div class="advisor-intro">
+                <p class="advisor-badge">✨ AI Beauty Advisor</p>
+                <h2>Tell us your concern and we’ll guide you to the right product.</h2>
+                <p>Answer a few quick questions and our assistant will suggest beauty products from our catalog.</p>
+            </div>
+
+            <div id="chatMessages" class="chat-messages">
+                <div class="message bot">Hi! I’m your Nectar assistant. What beauty issue are you facing today?</div>
+            </div>
+
+            <form id="advisorForm" class="advisor-form">
+                <input id="advisorInput" type="text" placeholder="Type your answer here..." autocomplete="off" required>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+
+            <p class="advisor-hint">Try: “My skin feels dry” or “I want a premium perfume under ₹2000.”</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about reveal">
+        <div class="about-content">
+            <h2>About Nectar Cosmetics</h2>
+            <p>Welcome to Nectar Cosmetics, your destination for skincare, makeup, haircare, and fragrance products.</p>
+            <p>Our mission is to help you discover products that enhance your natural beauty and boost your confidence. With authentic, quality-assured products and exceptional customer service, we ensure every shopping experience is delightful.</p>
+            <div class="about-features">
+                <div class="feature">
+                    <h4>🌟 Quality</h4>
+                    <p>100% authentic products</p>
+                </div>
+                <div class="feature">
+                    <h4>💎 Variety</h4>
+                    <p>Wide range of brands</p>
+                </div>
+                <div class="feature">
+                    <h4>🚀 Fast Delivery</h4>
+                    <p>Quick shipping options</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact reveal">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Email:</strong> support@glownest.com</p>
+                <p><strong>Phone:</strong> +1 (800) BEAUTY-1</p>
+                <p><strong>Address:</strong> 123 Glamour Street, Beauty City, BC 12345</p>
+                <p><strong>Hours:</strong> 24/7 Available</p>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="login" class="modal">
+        <div class="modal-content login-box">
+            <span class="close-modal">&times;</span>
+            <div class="logo-login">✨ Nectar Cosmetics</div>
+            <h2>User Login</h2>
+            <form>
+                <input type="email" placeholder="Enter Email" class="input-field" required>
+                <input type="password" placeholder="Enter Password" class="input-field" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p class="login-footer">Don't have an account? <a href="#register">Create One</a></p>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="register" class="modal">
+        <div class="modal-content register-box">
+            <span class="close-modal">&times;</span>
+            <div class="logo-login">✨ Nectar Cosmetics</div>
+            <h2>Create an Account</h2>
+            <form>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <textarea placeholder="Address" rows="3"></textarea>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+            <p class="login-footer">Already have an account? <a href="#login">Login Here</a></p>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Pinterest</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nectar Cosmetics | Premium Cosmetic & Beauty Shop</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Enhanced Navigation & Effects =====
+        const header = document.querySelector('header');
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const backToTop = document.getElementById('backToTop');
+
+        // Sticky header shrink on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                backToTop.classList.add('show');
+            } else {
+                header.classList.remove('scrolled');
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Mobile hamburger menu toggle
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('open');
+                navMenu.classList.toggle('open');
+            });
+
+            // Close menu when a nav link is clicked
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('open');
+                    navMenu.classList.remove('open');
+                });
+            });
+        }
+
+        // Back to top
+        if (backToTop) {
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Active link highlighting based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const headerOffset = header ? header.offsetHeight : 0;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerOffset - 80;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll reveal animations
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        // Modal functionality
+        const loginModal = document.getElementById('login');
+        const registerModal = document.getElementById('register');
+        const closeButtons = document.querySelectorAll('.close-modal');
+
+        document.querySelector('a[href="#login"]').addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+        });
+
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.target.closest('.modal').style.display = 'none';
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling with sticky-header offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.length > 1 && href !== '#login' && href !== '#register') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerOffset = header ? header.offsetHeight : 0;
+                        const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset + 8;
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // AI Beauty Advisor Chat Flow
+        const advisorForm = document.getElementById('advisorForm');
+        const advisorInput = document.getElementById('advisorInput');
+        const chatMessages = document.getElementById('chatMessages');
+        const advisorQuestions = [
+            'What beauty concern are you dealing with today?',
+            'What is your budget range for the product?',
+            'Do you prefer natural, premium, or everyday essentials?'
+        ];
+        let advisorStep = 0;
+        let advisorAnswers = {};
+
+        function addMessage(text, sender = 'bot') {
+            const message = document.createElement('div');
+            message.className = `message ${sender}`;
+            message.textContent = text;
+            chatMessages.appendChild(message);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function askNextAdvisorQuestion() {
+            if (advisorStep < advisorQuestions.length) {
+                addMessage(advisorQuestions[advisorStep]);
+                advisorInput.placeholder = 'Type your answer here...';
+                advisorInput.focus();
+            }
+        }
+
+        function normalizeBudget(text) {
+            const lower = text.toLowerCase();
+            if (lower.includes('under 500') || lower.includes('<500') || lower.includes('cheap') || lower.includes('budget')) {
+                return 'Under ₹500';
+            }
+            if (lower.includes('1000') || lower.includes('500-1000') || lower.includes('mid')) {
+                return '₹500 - ₹1000';
+            }
+            return '₹1000+';
+        }
+
+        function normalizeStyle(text) {
+            const lower = text.toLowerCase();
+            if (lower.includes('natural')) return 'Natural';
+            if (lower.includes('premium')) return 'Premium';
+            return 'Everyday essentials';
+        }
+
+        function getRecommendations(answers) {
+            const concern = answers.concern.toLowerCase();
+            let matches = [];
+
+            if (concern.includes('dry') || concern.includes('hydr') || concern.includes('moist')) {
+                matches = [
+                    { name: 'Premium Moisturizer', category: 'Skincare', price: 1299 },
+                    { name: 'Hydrating Body Lotion', category: 'Skincare', price: 599 },
+                    { name: 'Face Serum', category: 'Skincare', price: 1199 }
+                ];
+            } else if (concern.includes('acne') || concern.includes('oil') || concern.includes('glow')) {
+                matches = [
+                    { name: 'SPF 50 Sunscreen', category: 'Skincare', price: 649 },
+                    { name: 'Face Mask', category: 'Skincare', price: 399 },
+                    { name: 'Premium Moisturizer', category: 'Skincare', price: 1299 }
+                ];
+            } else if (concern.includes('hair') || concern.includes('fall') || concern.includes('shampoo') || concern.includes('condition')) {
+                matches = [
+                    { name: 'Volumizing Shampoo', category: 'Haircare', price: 699 },
+                    { name: 'Hair Conditioner', category: 'Haircare', price: 749 },
+                    { name: 'Hair Oil', category: 'Haircare', price: 549 }
+                ];
+            } else if (concern.includes('makeup') || concern.includes('lip') || concern.includes('foundation') || concern.includes('blush')) {
+                matches = [
+                    { name: 'Liquid Foundation', category: 'Makeup', price: 899 },
+                    { name: 'Matte Lipstick', category: 'Makeup', price: 449 },
+                    { name: 'Blush Palette', category: 'Makeup', price: 999 }
+                ];
+            } else if (concern.includes('perfume') || concern.includes('fragrance') || concern.includes('scent')) {
+                matches = [
+                    { name: 'Luxury Perfume', category: 'Fragrance', price: 1799 },
+                    { name: 'Cologne Set', category: 'Fragrance', price: 1499 },
+                    { name: 'Perfume Spray', category: 'Fragrance', price: 999 }
+                ];
+            } else {
+                matches = [
+                    { name: 'Premium Moisturizer', category: 'Skincare', price: 1299 },
+                    { name: 'Volumizing Shampoo', category: 'Haircare', price: 699 },
+                    { name: 'Liquid Foundation', category: 'Makeup', price: 899 }
+                ];
+            }
+
+            const budget = answers.budget;
+            if (budget === 'Under ₹500') {
+                matches = matches.filter(item => item.price <= 500);
+            } else if (budget === '₹500 - ₹1000') {
+                matches = matches.filter(item => item.price <= 1000);
+            }
+
+            if (answers.style === 'Premium') {
+                matches.sort((a, b) => b.price - a.price);
+            } else if (answers.style === 'Natural') {
+                matches = matches.filter(item => item.name.toLowerCase().includes('moisturizer') || item.name.toLowerCase().includes('oil') || item.name.toLowerCase().includes('serum'));
+            }
+
+            return matches.slice(0, 3);
+        }
+
+        function showRecommendations(recommendations) {
+            addMessage('I’ve shortlisted a few great options for you:', 'bot');
+            const list = document.createElement('div');
+            list.className = 'recommendation-list';
+
+            recommendations.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'recommendation-item';
+                card.innerHTML = `<strong>${product.name}</strong><br><span>${product.category}</span><br>₹${product.price}`;
+                list.appendChild(card);
+            });
+
+            chatMessages.appendChild(list);
+            addMessage('If you want, I can also help you pick one based on your skin type, occasion, or styling preference.', 'bot');
+            advisorInput.disabled = true;
+            advisorInput.placeholder = 'Consultation complete';
+        }
+
+        advisorForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const answer = advisorInput.value.trim();
+            if (!answer) return;
+
+            addMessage(answer, 'user');
+            const currentQuestion = advisorQuestions[advisorStep];
+
+            if (currentQuestion === advisorQuestions[0]) {
+                advisorAnswers.concern = answer;
+            } else if (currentQuestion === advisorQuestions[1]) {
+                advisorAnswers.budget = normalizeBudget(answer);
+            } else if (currentQuestion === advisorQuestions[2]) {
+                advisorAnswers.style = normalizeStyle(answer);
+            }
+
+            advisorStep += 1;
+            advisorInput.value = '';
+
+            if (advisorStep < advisorQuestions.length) {
+                askNextAdvisorQuestion();
+            } else {
+                const recommendations = getRecommendations(advisorAnswers);
+                showRecommendations(recommendations);
+            }
+        });
+
+        askNextAdvisorQuestion();
+    </script>
+    <script src="storefront.js"></script>
+</body>
+</html>
